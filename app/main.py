@@ -5,15 +5,11 @@ app = FastAPI()
 
 # first block
 from transformers import pipeline
-sentiment_model = pipeline("sentiment-analysis")
-
-# from transformers import AutoTokenizer, AutoModel
-
-# >>> tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-# >>> model = AutoModel.from_pretrained("bert-base-uncased")
+sentiment_model = pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english")
 
 
-# second block
 from pydantic import BaseModel
 
 class PredictionRequest(BaseModel):
